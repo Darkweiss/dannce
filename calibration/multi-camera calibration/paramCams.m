@@ -1,6 +1,6 @@
 clear
 
-numCams = 6;
+numCams = 4;
 baseFolder = 'D:\\20191122\mouse';
 
 load([baseFolder filesep 'calibration\camera_params.mat'])

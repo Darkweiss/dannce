@@ -1,11 +1,11 @@
 %% Find the camera intrinsic parameters
 % Input Parameters
 clear
-basedir = 'D:\20191122\mouse\calibration\intrinsic\';
+basedir = 'C:\DANNCE\Calibration';
 cd(basedir)
-numcams = 6;
-squareSize = 10.0; % Size of Checkerboard squares in mm
-ext = '.mp4';
+numcams = 4;
+squareSize = 20.0; % Size of Checkerboard squares in mm
+ext = '.avi';
 maxNumImages = 500;
 videoName = '0';
 %% Automated Checkerboard Frame Detection
@@ -21,7 +21,7 @@ clear video_temp
 for kk = 1:numcams
     
     tic
-    video_temp = VideoReader([basedir filesep 'Camera' num2str(kk) filesep videoName '.mp4']);
+    video_temp = VideoReader([basedir filesep 'Camera' num2str(kk) filesep videoName '.avi']);
     maxFrames = floor(video_temp.FrameRate*video_temp.Duration);
     
     video_base = cell(maxFrames,1);
@@ -58,7 +58,7 @@ cd(basedir)
 load('cam_intrinsics.mat')
 numcams = 6;
 for kk = 1:numcams
-    video_temp = VideoReader([basedir 'view_cam' num2str(kk) '.mp4']);    
+    video_temp = VideoReader([basedir '\' 'Camera' num2str(kk) '\' '0' '.avi']);    
     maxframes = floor(video_temp.FrameRate*video_temp.Duration);
     video_base = cell(maxframes,1);
     cnt = 1;
